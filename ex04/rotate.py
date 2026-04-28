@@ -1,5 +1,6 @@
 from load_image import ft_load
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def main():
@@ -13,7 +14,10 @@ def main():
 
     print(f"New shape after slicing: {zoomed.shape}\n{zoomed}")
 
-    plt.imshow(zoomed, cmap="gray")
+    transposed = [[row[i] for row in zoomed] for i in range(len(zoomed[0]))]
+
+    rotated = np.array(transposed)
+    plt.imshow(rotated, cmap="gray")
     plt.show()
 
 
